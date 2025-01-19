@@ -1,0 +1,7 @@
+{
+  "categories": ["Paintings", "Drawings"],
+  "tables": {
+    "Paintings": ["Starry Night", "Sunflowers", "The Bedroom", "Irises", "Wheatfield with Crows", "Cafe Terrace at Night", "The Potato Eaters"],
+    "Drawings": ["The Sower", "Old Man with His Head in His Hands", "The Road Menders", "The Church at Auvers", "View of Arles", "The Siesta"]
+  }
+}

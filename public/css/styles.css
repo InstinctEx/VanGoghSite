@@ -1,0 +1,104 @@
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #343a40;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #343a40;
+}
+
+#sidebar .nav-link {
+  font-size: 1.1em;
+  padding: 10px 20px;
+}
+
+#sidebar .nav-link:hover {
+  background: #495057;
+}
+
+#sidebar .dropdown-menu {
+  position: static;
+  float: none;
+  width: auto;
+  margin-top: 0;
+}
+
+#main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+footer {
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}
+
+.flex-item {
+  background: #ddd;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1 1 calc(33.333% - 20px);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px 15px;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #555;
+}
+
+.navbar-toggler-icon {
+  background-image: url('hamburger-menu-4.svg');
+  }
+
+@media (max-width: 768px) {
+  #main-content {
+    margin-left: 0;
+  }
+  #sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}

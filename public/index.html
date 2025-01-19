@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vincent Van Gogh Biography</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Button to toggle sidebar on small screens -->
+      <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Sidebar -->
+      <nav id="sidebar" class="col-md-3 bg-dark text-white vh-100 p-3 collapse d-md-block">
+        <div class="sidebar-header text-center mb-4">
+          <img src="images/vangogh.jpg" alt="Vincent Van Gogh" class="rounded-circle" width="100" height="100">
+          <h3>Vincent Van Gogh</h3>
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link text-white" href="#biography" onclick="loadContent('biography')"><i class="fas fa-user"></i> Biography</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="tablesDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-table"></i> Tables
+            </a>
+            <div class="dropdown-menu bg-dark" aria-labelledby="tablesDropdown">
+              <a class="dropdown-item text-white" href="#" onclick="showTable('Paintings')">Paintings</a>
+              <a class="dropdown-item text-white" href="#" onclick="showTable('Drawings')">Drawings</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link text-white" href="#reports" onclick="loadContent('reports')"><i class="fas fa-file-alt"></i> Reports</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#links" onclick="loadContent('links')"><i class="fas fa-link"></i> Links</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#management" onclick="loadContent('management')"><i class="fas fa-cog"></i> Management</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main id="main-content" class="col-md-9 ml-sm-auto col-lg-9 px-md-4 py-3">
+        <!-- Main content will be dynamically loaded here -->
+      </main>
+    </div>
+  </div>
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Vincent Van Gogh Web Application</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebar = document.getElementById('sidebar');
+      const navLinks = sidebar.querySelectorAll('.nav-link');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+      const dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+          if (window.innerWidth < 768 && !link.classList.contains('dropdown-toggle')) {
+            sidebar.classList.remove('show');
+          }
+        });
+      });
+
+      const dropdownLink = document.getElementById('tablesDropdown');
+      dropdownLink.addEventListener('click', (event) => {
+        if (window.innerWidth < 768) {
+          event.preventDefault();
+          dropdownMenu.classList.toggle('show');
+        }
+      });
+
+      // Show dropdown on hover
+      dropdownLink.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 768) {
+          dropdownMenu.classList.add('show');
+        }
+      });
+      dropdownLink.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 768) {
+          dropdownMenu.classList.remove('show');
+        }
+      });
+      dropdownMenu.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 768) {
+          dropdownMenu.classList.add('show');
+        }
+      });
+      dropdownMenu.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 768) {
+          dropdownMenu.classList.remove('show');
+        }
+      });
+
+      // Close sidebar when a dropdown item is clicked
+      dropdownItems.forEach(item => {
+        item.addEventListener('click', () => {
+          if (window.innerWidth < 768) {
+            sidebar.classList.remove('show');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
